@@ -17,12 +17,15 @@ export class GameComponent implements OnInit {
 
   startGame(): void {
     this.game.gameStart();
+    const currentPlayer = "Vez do jogador: Nº  " + this.game.currentTurn;
+    const information = document.querySelector(".current-status");
+    information.innerHTML = currentPlayer;
   }
 
   async clickSubfield(subField: any): Promise<void> {
     if (this.game.gameStatus === 1) {
       const position = subField.currentTarget.getAttribute("position");
-      console.log(position);
+      console.log("Posição clicada: " + position);
     }
   }
 }
