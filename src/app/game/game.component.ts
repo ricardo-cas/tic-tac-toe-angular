@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { GameLogic } from "../gamelogic";
 
 @Component({
   // utilizando um seletor, pegando o elemento html
@@ -7,9 +8,13 @@ import { Component, OnInit } from "@angular/core";
   // selector: '.app-game',
   templateUrl: "./game.component.html",
   styleUrls: ["./game.component.scss"],
+  providers: [GameLogic],
 })
 export class GameComponent implements OnInit {
-  constructor() {}
-
+  constructor(public game: GameLogic) {}
   ngOnInit(): void {}
+
+  starGame(): void {
+    this.game.gameStart();
+  }
 }
