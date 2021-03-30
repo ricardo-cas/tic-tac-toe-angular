@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+// import { promises } from  "node:dns";
 import { GameLogic } from "../gamelogic";
 
 @Component({
@@ -16,5 +17,12 @@ export class GameComponent implements OnInit {
 
   startGame(): void {
     this.game.gameStart();
+  }
+
+  async clickSubfield(subField: any): Promise<void> {
+    if (this.game.gameStatus === 1) {
+      const position = subField.currentTarget.getAttribute("position");
+      console.log(position);
+    }
   }
 }
