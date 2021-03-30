@@ -14,7 +14,7 @@ export class GameComponent implements OnInit {
   constructor(public game: GameLogic) {}
   ngOnInit(): void {}
 
-  starGame(): void {
+  startGame(): void {
     this.game.gameStart();
   }
 }
