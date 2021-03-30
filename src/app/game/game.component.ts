@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 // import { promises } from  "node:dns";
 import { GameLogic } from "../gamelogic";
-
+import { HttpClient } from "@angular/common/http";
 @Component({
   // utilizando um seletor, pegando o elemento html
   selector: "app-game",
@@ -27,14 +27,18 @@ export class GameComponent implements OnInit {
       const position = subField.currentTarget.getAttribute("position");
       const information = document.querySelector(".current-status");
 
-      console.log("Posição clicada: " + position);
+      // console.log("Posição clicada: " + position);
 
       this.game.setField(position, this.game.currentTurn);
       const color = this.game.getPlayerColorClass();
       subField.currentTarget.classList.add(color);
-      console.log(color);
+      // console.log(color);
+
+      // await this.game.checkGameEndWinner();
+      await this.game.checkGameEndFull();
 
       this.game.changePlayer();
+
       if (this.game.gameStatus === 1) {
         const currentPlayer = "Vez do jogador: Nº  " + this.game.currentTurn;
         information.innerHTML = currentPlayer;

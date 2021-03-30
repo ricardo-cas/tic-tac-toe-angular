@@ -34,4 +34,22 @@ export class GameLogic {
   changePlayer(): void {
     this.currentTurn = this.currentTurn === 2 ? 1 : 2;
   }
+
+  async checkGameEndFull(): Promise<boolean> {
+    let isFull = true;
+
+    if (this.gameField.includes(0)) {
+      isFull = false;
+    }
+    if (isFull) {
+      this.gameEnds();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  gameEnds(): void {
+    this.gameStatus = Status.STOP;
+  }
 }
