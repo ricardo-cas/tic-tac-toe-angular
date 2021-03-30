@@ -11,10 +11,10 @@ export class GameLogic {
   }
 
   gameStart(): void {
+    this.gameStatus = Status.START;
     this.gameField = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     this.currentTurn = this.randomPlayerStart();
     console.log(this.currentTurn);
-    this.gameStatus = Status.START;
   }
 
   randomPlayerStart(): number {
