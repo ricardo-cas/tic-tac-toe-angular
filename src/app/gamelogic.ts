@@ -30,4 +30,8 @@ export class GameLogic {
     const colorClass = this.currentTurn === 2 ? "player-two" : "player-one";
     return colorClass;
   }
+
+  changePlayer(): void {
+    this.currentTurn = this.currentTurn === 2 ? 1 : 2;
+  }
 }

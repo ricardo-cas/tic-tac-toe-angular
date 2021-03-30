@@ -30,5 +30,6 @@ export class GameComponent implements OnInit {
       const color = this.game.getPlayerColorClass();
       subField.currentTarget.classList.add(color);
     }
+    this.game.changePlayer();
   }
 }
