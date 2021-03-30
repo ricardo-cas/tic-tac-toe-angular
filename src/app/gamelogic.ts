@@ -21,4 +21,13 @@ export class GameLogic {
     const startPlayer = Math.floor(Math.random() * 2 + 1);
     return startPlayer;
   }
+
+  setField(position: number, value: number): void {
+    this.gameField[position] = value;
+  }
+
+  getPlayerColorClass(): string {
+    const colorClass = this.currentTurn === 2 ? "player-two" : "player-one";
+    return colorClass;
+  }
 }

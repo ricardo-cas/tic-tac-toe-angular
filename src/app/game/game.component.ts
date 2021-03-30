@@ -26,6 +26,9 @@ export class GameComponent implements OnInit {
     if (this.game.gameStatus === 1) {
       const position = subField.currentTarget.getAttribute("position");
       console.log("Posição clicada: " + position);
+      this.game.setField(position, this.game.currentTurn);
+      const color = this.game.getPlayerColorClass();
+      subField.currentTarget.classList.add(color);
     }
   }
 }
