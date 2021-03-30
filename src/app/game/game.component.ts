@@ -35,7 +35,11 @@ export class GameComponent implements OnInit {
       // console.log(color);
 
       // await this.game.checkGameEndWinner();
-      await this.game.checkGameEndFull();
+      await this.game.checkGameEndFull().then((end: boolean) => {
+        if (this.game.gameStatus === 0 && end) {
+          information.innerHTML = "empatou! tentem novamente! :)  ";
+        }
+      });
 
       this.game.changePlayer();
 
