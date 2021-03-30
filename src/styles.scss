@@ -1,9 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap";
 
-:root {
-  --sonic-silver: #6b7076ff;
-}
 html,
 body {
   height: 100%;
@@ -11,5 +8,5 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: var(--sonic-silver);
+  background: #6b7076ff;
 }

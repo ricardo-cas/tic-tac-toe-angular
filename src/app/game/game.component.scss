@@ -1,3 +1,8 @@
+:root {
+  --player-one-color: #38e4aeff;
+  --player-two-color: #f45b69ff;
+}
+
 .main-container {
   .gameboard {
     margin-top: 40px;
@@ -24,6 +29,13 @@
         height: 100px;
         width: 100px;
         border: 2.5px solid #fff;
+        &.player-one {
+          background: #38e4aeff;
+        }
+
+        &.player-two {
+          background-color: #f45b69ff;
+        }
       }
     }
   }

@@ -8,17 +8,26 @@
     Jogo da Velha
   </h1>
   <div class="field d-flex justify-content-center">
-    <p class="mat-display-1" style="color: #fff">
+    <p class="current-status mat-display-1" style="color: #fff">
       Para começar, aperte o botão
     </p>
   </div>
-  <div class="field d-flex justify-content-center" style="width: 100%">
-    <button mat-raised-button color="primary" class="start-game-button">
+  <div
+    *ngIf="this.game.gameStatus === 0"
+    class="field d-flex justify-content-center"
+    style="width: 100%"
+  >
+    <button
+      (click)="startGame()"
+      mat-raised-button
+      color="primary"
+      class="start-game-button"
+    >
       Começe a jogar agora!
     </button>
   </div>
 
-  <div class="gameboard">
+  <div *ngIf="this.game.gameStatus === 1" class="gameboard">
     <div class="players player-one aling-self-center">
       <p class="mat-body-1" style="font-weight: 700; margin: 0 0 10px 10px">
         Jogador 1
@@ -26,31 +35,59 @@
     </div>
     <div class="gamefield container-fluid">
       <div class="row">
-        <div class="subfield col 4"></div>
-        <div class="subfield col 4"></div>
-        <div class="subfield col 4"></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="0"
+          class="subfield col 4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="1"
+          class="subfield col 4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="2"
+          class="subfield col 4"
+        ></div>
       </div>
       <div class="row">
-        <div class="subfield col 4"></div>
-        <div class="subfield col 4"></div>
-        <div class="subfield col 4"></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="3"
+          class="subfield col 4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="4"
+          class="subfield col 4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="5"
+          class="subfield col 4"
+        ></div>
       </div>
       <div class="row">
-        <div class="subfield col 4"></div>
-        <div class="subfield col 4"></div>
-        <div class="subfield col 4"></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="6"
+          class="subfield col 4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="7"
+          class="subfield col 4"
+        ></div>
+        <div
+          (click)="clickSubfield($event)"
+          position="8"
+          class="subfield col 4"
+        ></div>
       </div>
     </div>
     <div class="players player-two aling-self-center">
-      <p
-        class="mat-body-1"
-        style="
-          text-align: center;
-          justify-content: center;
-          font-weight: 700;
-          margin: 0 10px 10px 0;
-        "
-      >
+      <p class="mat-body-1" style="font-weight: 700; margin: 0 10px 10px 0">
         Jogador 2
       </p>
     </div>
