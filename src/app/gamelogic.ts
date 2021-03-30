@@ -35,6 +35,17 @@ export class GameLogic {
     this.currentTurn = this.currentTurn === 2 ? 1 : 2;
   }
 
+  async checkGameEndWinner(): Promise<boolean> {
+    let isWinner = true;
+
+    if (isWinner) {
+      this.gameEnds();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   async checkGameEndFull(): Promise<boolean> {
     let isFull = true;
 

@@ -34,7 +34,12 @@ export class GameComponent implements OnInit {
       subField.currentTarget.classList.add(color);
       // console.log(color);
 
-      // await this.game.checkGameEndWinner();
+      await this.game.checkGameEndWinner().then((end: boolean) => {
+        if (this.game.gameStatus === 0 && end) {
+          information.innerHTML = "O vencendor é: " + this.game.currentTurn;
+        }
+      });
+
       await this.game.checkGameEndFull().then((end: boolean) => {
         if (this.game.gameStatus === 0 && end) {
           information.innerHTML = "empatou! tentem novamente! :)  ";
