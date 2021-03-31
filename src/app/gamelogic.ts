@@ -34,7 +34,6 @@ export class GameLogic {
     this.gameStatus = Status.START;
     this.gameField = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     this.currentTurn = this.randomPlayerStart();
-    console.log(this.currentTurn);
   }
 
   randomPlayerStart(): number {
@@ -85,7 +84,6 @@ export class GameLogic {
       }
     });
 
-    console.log(checkArray);
     if (isWinner) {
       this.gameEnds();
       return true;
