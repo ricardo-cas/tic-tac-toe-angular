@@ -14,6 +14,16 @@ export class GameLogic {
     [0, 0, 1, 0, 1, 0, 1, 0, 0],
     [1, 0, 0, 0, 1, 0, 0, 0, 1], // win situation for diagonal
   ];
+  winSituationsTwo: Array<Array<number>> = [
+    [2, 2, 2, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 2, 2, 2, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 2, 2, 2], // win situation for the rows
+    [2, 0, 0, 2, 0, 0, 2, 0, 0],
+    [0, 2, 0, 0, 2, 0, 0, 2, 0],
+    [0, 0, 2, 0, 0, 2, 0, 0, 2], // win situation for the colluns
+    [0, 0, 2, 0, 2, 0, 2, 0, 0],
+    [2, 0, 0, 0, 2, 0, 0, 0, 2], // win situation for diagonal
+  ];
 
   public constructor() {
     this.gameStatus = Status.STOP;
