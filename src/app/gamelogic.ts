@@ -20,7 +20,7 @@ export class GameLogic {
     [0, 0, 0, 0, 0, 0, 2, 2, 2], // win situation for the rows
     [2, 0, 0, 2, 0, 0, 2, 0, 0],
     [0, 2, 0, 0, 2, 0, 0, 2, 0],
-    [0, 0, 2, 0, 0, 2, 0, 0, 2], // win situation for the colluns
+    [0, 0, 2, 0, 0, 2, 0, 0, 2], // win situation for the colunas
     [0, 0, 2, 0, 2, 0, 2, 0, 0],
     [2, 0, 0, 0, 2, 0, 0, 0, 2], // win situation for diagonal
   ];
@@ -55,9 +55,37 @@ export class GameLogic {
     this.currentTurn = this.currentTurn === 2 ? 1 : 2;
   }
 
-  async checkGameEndWinner(): Promise<boolean> {
-    let isWinner = true;
+  arrayEquals(a: Array<any>, b: Array<any>): boolean {
+    return (
+      Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((value, index) => value === b[index])
+    );
+  }
 
+  async checkGameEndWinner(): Promise<boolean> {
+    let isWinner = false;
+    const checkArray =
+      this.currentTurn === 1 ? this.winSituationsOne : this.winSituationsTwo;
+
+    const currentArray = [];
+
+    this.gameField.forEach((subfield, index) => {
+      if (subfield !== this.currentTurn) {
+        currentArray[index] = 0;
+      } else {
+        currentArray[index] = subfield;
+      }
+    });
+
+    checkArray.forEach((checkfield, checkindex) => {
+      if (this.arrayEquals(checkfield, currentArray)) {
+        isWinner = true;
+      }
+    });
+
+    console.log(checkArray);
     if (isWinner) {
       this.gameEnds();
       return true;
