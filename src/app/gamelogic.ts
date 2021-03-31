@@ -4,6 +4,16 @@ export class GameLogic {
   gameField: Array<number> = [];
   currentTurn: number;
   gameStatus: Status;
+  winSituationsOne: Array<Array<number>> = [
+    [1, 1, 1, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 1, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 1, 1, 1], // win situation for the rows
+    [1, 0, 0, 1, 0, 0, 1, 0, 0],
+    [0, 1, 0, 0, 1, 0, 0, 1, 0],
+    [0, 0, 1, 0, 0, 1, 0, 0, 1], // win situation for the colluns
+    [0, 0, 1, 0, 1, 0, 1, 0, 0],
+    [1, 0, 0, 0, 1, 0, 0, 0, 1], // win situation for diagonal
+  ];
 
   public constructor() {
     this.gameStatus = Status.STOP;
